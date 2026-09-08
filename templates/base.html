@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.title }}</title>
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}">
+    <title>{% if page is defined and page.title %}{{ page.title }} | {% elif section is defined and section.title %}{{ section.title }} | {% endif %}{{ config.title }}</title>
+    <meta name="description" content="{% if page is defined and page.description %}{{ page.description }}{% elif section is defined and section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}">
     
     <!-- CSS -->
     <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
@@ -133,4 +133,4 @@
         }));
     </script>
 </body>
-</html> 
+</html>
